@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ -f $1/public/build/bundle-*.js ]; then
+  echo "The webpack bundle has already been generated. Skipping..."
+  exit 1
+fi
+
 if [ -f $1/webpack.config.js ]; then
   echo "Webpack buildpack"
   exit 0
